@@ -21,6 +21,9 @@ let btnPower2 = document.getElementById("btn-power2");
 let btnModulo = document.getElementById("btn-modulo");
 let btnPi = document.getElementById("btn-pi");
 
+let btnPoint = document.getElementById("btn-point");
+let btnPercent = document.getElementById("btn-percentage");
+
 let btnEqual = document.getElementById("btn-equal");
 let result;
 
@@ -101,6 +104,24 @@ btnPi.addEventListener("click", ()=>{
   displayResult.innerHTML += "π";
 })
 
+btnPoint.addEventListener("click", ()=>{
+  displayResult.innerHTML += ".";
+})
+
+btnPercent.addEventListener("click", ()=>{
+  displayResult.innerHTML += "%";
+})
+
+// TODO: Implement
+// 1. Implement ()
+// 2. implement sqrt
+// 3. add del button somewhere
+// 31. implement fun bg change (Toggleable)
+
+// TODO: Squash Bug
+// 1. No order of operation (PEMDAS) (Multiplication is calc based on the order)
+// 2. Wrong calc with minus number (-2 + 5)
+
 //! Add Operational
 btnEqual.addEventListener("click", ()=>{
   let calculateThis = displayResult.innerHTML;
@@ -109,8 +130,9 @@ btnEqual.addEventListener("click", ()=>{
   if(calculateThis == ""){
     console.log("nope by =");
   } else {
-    let indexOperand = calculateThis.indexOf("+", 0);
-
+    // TODO: Check if there is operand in front of the number
+    // TODO: imputing -3 + 5 will result in raw = "", -, 3, -, 5
+    // TODO: number should be in front
     // Split string into operation and operands
     const raw = calculateThis.split(/(\+|\-|x|\/| mod )/);
     const operands = [];
@@ -128,8 +150,11 @@ btnEqual.addEventListener("click", ()=>{
         } else if(raw[i].includes('π')){
           operands.push(22/7*(parseInt(raw[i])));
           console.log("Ada Pi");
+        } else if(raw[i].includes('%')){
+          operands.push(parseInt(raw[i])/100);
+          console.log("Ada %");
         } else {
-          operands.push(parseInt(raw[i]));
+          operands.push(parseFloat(raw[i]));
         }
       } else if(raw[i].includes('π')){ // Jika hanya ada Pi di Display
         operands.push(22/7);
@@ -143,6 +168,7 @@ btnEqual.addEventListener("click", ()=>{
     result = operands[0];
     let j = 1;
     for (let i = 1; i < operands.length; i++) {
+      console.log("start => " + result);
       switch (raw[j]) {
         case "+":
           result += operands[i];
@@ -164,6 +190,8 @@ btnEqual.addEventListener("click", ()=>{
       }
       // increment again to have the next valid operations
       j+=2;
+
+      console.log("Result = " + result);
     }
     displayResult.innerHTML = result;
   }

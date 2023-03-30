@@ -1,4 +1,4 @@
-const str = "3 + 5"; // 25+5 = 30
+const str = "10%"; // 25+5 = 30
 
 const raw = str.split(/(\+|\-|x|\/| mod )/);
 // operations = 5, +, 2, +, 1;
@@ -18,6 +18,9 @@ for (let i = 0; i < raw.length; i++) {
     } else if(raw[i].includes('π')){
       operands.push(22/7*(parseInt(raw[i])));
       console.log("Ada Pi");
+    } else if(raw[i].includes('%')){
+      operands.push(parseInt(raw[i])/100);
+      console.log("Ada %");
     } else {
       console.log("Pushing...");
       operands.push(parseFloat(raw[i]));
@@ -63,8 +66,3 @@ for (let i = 1; i < operands.length; i++) {
 }
 
 console.log("hasil = " + result);
-
-console.log(8%10);
-
-console.log(22/7);
-
