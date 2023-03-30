@@ -21,11 +21,11 @@ body{
   top: 50%;
   transform: translate(-50%, -50%);
 
-  background: white;
+  background: grey;
   margin: auto;
 
   border-radius: 10px;
-  border: 1px solid orange;
+  border: 2px solid orange;
 
 
   box-shadow: 3px 3px 8px orange;
@@ -57,6 +57,14 @@ body{
 
 .main-window-display{
   height: 100px;
+  background: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .main-window-button{
@@ -85,7 +93,7 @@ body{
   justify-content: center;
   align-items: center;
 
-  background: black;
+  background: #181c21;
   border-radius: 5px;
   color: white;
   border: none;
@@ -93,11 +101,26 @@ body{
 
   width: 100%;
   font-weight: 900;
+
+  transition: all ease 0.31s ;
+}
+
+.btn-num{
+  /* background: #181c21; */
+  background: #36393d;
+}
+
+.btn:hover{
+  filter: brightness(180%);
 }
 
 .btn-20{
   grid-column: 5;
   grid-row: 4 / span 2;
 
-  background: orange;
+  background: #faa200;
+}
+
+.btn-20:hover{
+  filter: brightness(115%);
 }
