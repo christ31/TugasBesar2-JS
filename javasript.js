@@ -120,9 +120,6 @@ btnSqrt.addEventListener("click", ()=>{
 
 // TODO: Implement
 // 1. Implement ()
-// 2. implement sqrt
-// 3. add del button somewhere
-// 31. implement fun bg change (Toggleable)
 
 // TODO: Squash Bug
 // 1. No order of operation (PEMDAS) (Multiplication is calc based on the order)
