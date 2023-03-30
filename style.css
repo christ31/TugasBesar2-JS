@@ -1,5 +1,11 @@
+*{
+  font-family: system-ui;
+}
+
+
 body{
-  background: grey; 
+  background: url("img/keys-d.webp"); 
+  background-size: cover;
 }
 
 .main-container{
@@ -10,13 +16,20 @@ body{
   display: flex;
   flex-direction: column;
 
-  background: green;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background: white;
   margin: auto;
 
   border-radius: 10px;
   border: 1px solid orange;
 
   width: 300px;
+
+  box-shadow: 3px 3px 8px orange;
 }
 
 .main-window-title-bar{
@@ -31,9 +44,7 @@ body{
 }
 
 .main-window-title-bar .window-title{
-  background: red;
   display: inline-block;
-  
   margin: auto;
 
 }
@@ -46,6 +57,10 @@ body{
   cursor: pointer;
 }
 
+.main-window-display{
+  height: 100px;
+}
+
 .main-window-button{
   background: #CECECE;
   border-radius: 10px;
@@ -55,9 +70,8 @@ body{
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 
-  justify-content: space-around;
-
-  margin: 5px 0px;
+  /* justify-content: space-around; */
+  margin: 5px 5px;
   gap: 5px;
 
   height: 200px;
@@ -67,12 +81,6 @@ body{
   width: 20px;
 }
 
-.btn-20{
-  grid-column: 5;
-  grid-row: 4/ span 2;
-
-  background: orange;
-}
 
 .btn{
   display: flex;
@@ -82,12 +90,16 @@ body{
   background: black;
   border-radius: 5px;
   color: white;
-
   border: none;
-
   cursor: pointer;
 
-  width: 50px;
-
+  width: 100%;
   font-weight: 900;
+}
+
+.btn-20{
+  grid-column: 5;
+  grid-row: 4 / span 2;
+
+  background: orange;
 }
