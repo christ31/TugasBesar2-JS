@@ -93,11 +93,14 @@ btnEqual.addEventListener("click", ()=>{
   let indexOperand = calculateThis.indexOf("+", 0);
 
   nilaiB = parseInt(calculateThis.charAt(indexOperand+1));
-  console.log("Nilai B = "+nilaiB);
 
-  result = nilaiA + nilaiB;
+  let nilaiC = parseInt(calculateThis.substring(indexOperand+1, calculateThis.length));
+  console.log("Nilai C = "+nilaiC);
+
+  result = nilaiA + nilaiC;
   console.log(displayResult.innerHTML.length);
-  displayResult.innerHTML = nilaiA+nilaiB;
+  console.log("Operasi: " + calculateThis + " = " + result);
+  displayResult.innerHTML = result;
 })
 
 // displayResult.innerHTML = "Ganti";
