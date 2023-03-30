@@ -4,13 +4,26 @@
 
 
 body{
-  background: url("img/keys-d.webp"); 
+  margin: 0;
+  padding: 0;
+}
+
+.background{
+  position: fixed;
+  background: url("img/design-is-rounded-rectangles-l.webp"); 
   background-size: cover;
+  width: 100%;
+  height: 100%;
+
 }
 
 .main-container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
+
 
 .main-window{
   display: flex;
@@ -21,24 +34,23 @@ body{
   top: 50%;
   transform: translate(-50%, -50%);
 
-  background: grey;
+  /* background: grey; */
   margin: auto;
 
   border-radius: 10px;
-  border: 2px solid orange;
+  border: 1px solid #0a042b;
+  backdrop-filter: blur(7px);
 
-
-  box-shadow: 3px 3px 8px orange;
+  box-shadow: 0px 0px 9px #0a042b;
 }
 
 .main-window-title-bar{
-  background: black;
+  /* background: rgba(0, 0, 0, 0.3); */
   color: white;
   border-radius: 10px 10px 0 0;
   position: relative;
 
   height: 30px;
-
   display: flex;
 }
 
@@ -66,7 +78,7 @@ body{
 
 .main-window-display{
   height: 100px;
-  background: white;
+  background: rgba(255, 255, 255, 0.3);
 
   display: flex;
   justify-content: center;
@@ -77,8 +89,9 @@ body{
 }
 
 .main-window-button{
-  background: #CECECE;
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+  padding: 5px;
 }
 
 .main-window-button-row{
@@ -149,4 +162,14 @@ body{
 
 .disabled:hover{
   filter: none;
+}
+
+
+/*! Color */
+.red{
+  color: rgba(255,0,0,0.9);
+}
+
+.white{
+  color: rgba(255,255,255, 0.4);
 }

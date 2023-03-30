@@ -89,18 +89,21 @@ btnDivision.addEventListener("click", ()=>{
 //! Add Operational
 btnEqual.addEventListener("click", ()=>{
   let calculateThis = displayResult.innerHTML;
-
-  let indexOperand = calculateThis.indexOf("+", 0);
-
-  nilaiB = parseInt(calculateThis.charAt(indexOperand+1));
-
-  let nilaiC = parseInt(calculateThis.substring(indexOperand+1, calculateThis.length));
-  console.log("Nilai C = "+nilaiC);
-
-  result = nilaiA + nilaiC;
-  console.log(displayResult.innerHTML.length);
-  console.log("Operasi: " + calculateThis + " = " + result);
-  displayResult.innerHTML = result;
+  if(calculateThis == ""){
+    console.log("nope by =");
+  } else {
+    let indexOperand = calculateThis.indexOf("+", 0);
+    
+    nilaiB = parseInt(calculateThis.charAt(indexOperand+1));
+    
+    let nilaiC = parseInt(calculateThis.substring(indexOperand+1, calculateThis.length));
+    console.log("Nilai C = "+nilaiC);
+    
+    result = nilaiA + nilaiC;
+    console.log(displayResult.innerHTML.length);
+    console.log("Operasi: " + calculateThis + " = " + result);
+    displayResult.innerHTML = result;
+  }
 })
 
 // displayResult.innerHTML = "Ganti";
