@@ -17,6 +17,10 @@ let btnMinus = document.getElementById("btn-minus");
 let btnMultiply = document.getElementById("btn-multiply");
 let btnDivision = document.getElementById("btn-div");
 
+let btnPower2 = document.getElementById("btn-power2");
+let btnModulo = document.getElementById("btn-modulo");
+let btnPi = document.getElementById("btn-pi");
+
 let btnEqual = document.getElementById("btn-equal");
 let result;
 
@@ -85,6 +89,18 @@ btnDivision.addEventListener("click", ()=>{
   displayResult.innerHTML += "/";
 })
 
+btnPower2.addEventListener("click", ()=>{
+  displayResult.innerHTML += "²";
+})
+
+btnModulo.addEventListener("click", ()=>{
+  displayResult.innerHTML += " mod ";
+})
+
+btnPi.addEventListener("click", ()=>{
+  displayResult.innerHTML += "π";
+})
+
 //! Add Operational
 btnEqual.addEventListener("click", ()=>{
   let calculateThis = displayResult.innerHTML;
@@ -96,16 +112,32 @@ btnEqual.addEventListener("click", ()=>{
     let indexOperand = calculateThis.indexOf("+", 0);
 
     // Split string into operation and operands
-    const raw = calculateThis.split(/(\+|\-|x|\/)/);
+    const raw = calculateThis.split(/(\+|\-|x|\/| mod )/);
     const operands = [];
 
-    for (let i = 0; i < raw.length; i++) {
+    for(let i = 0; i < raw.length; i++) {
       // Filter all the operations 
-      if (raw[i].match(/\d+/)) { 
-        operands.push(parseInt(raw[i]));
+      if(raw[i].match(/\d+/)) { 
+
+        // Find if raw have power²
+        if(raw[i].includes("²")){
+          console.log("Ada kuadrat");
+          let toPower2 = parseInt(raw[i]);
+          toPower2 *= toPower2;
+          operands.push(toPower2);
+        } else if(raw[i].includes('π')){
+          operands.push(22/7*(parseInt(raw[i])));
+          console.log("Ada Pi");
+        } else {
+          operands.push(parseInt(raw[i]));
+        }
+      } else if(raw[i].includes('π')){ // Jika hanya ada Pi di Display
+        operands.push(22/7);
       }
     }
-    console.log(operands);
+    console.log("RAW = " + raw);
+    console.log("Operands = " + operands);
+
 
     // Take the first value into results
     result = operands[0];
@@ -123,6 +155,9 @@ btnEqual.addEventListener("click", ()=>{
           break;
         case "/":
           result /= operands[i];
+          break;
+        case " mod ":
+          result %= operands[i];
           break;
         default:
           console.log("Invalid operator");
