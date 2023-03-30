@@ -44,13 +44,22 @@ body{
 
 .main-window-title-bar .window-title{
   display: inline-block;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
   margin: auto;
+
+  font-weight: 900;
 }
 
 .main-window-title-bar .window-button-trio{
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 0;
+  top: 50%;
+  transform: translate(-20%, -50%);
 
   cursor: pointer;
 }
@@ -102,7 +111,7 @@ body{
   width: 100%;
   font-weight: 900;
 
-  transition: all ease 0.31s ;
+  transition: all ease 0.13s ;
 }
 
 .btn-num{
@@ -114,6 +123,10 @@ body{
   filter: brightness(180%);
 }
 
+.btn:active{
+  filter: brightness(250%);
+}
+
 .btn-20{
   grid-column: 5;
   grid-row: 4 / span 2;
@@ -123,4 +136,17 @@ body{
 
 .btn-20:hover{
   filter: brightness(115%);
+}
+
+.btn-20:active{
+  filter: brightness(130%);
+}
+
+.disabled{
+  background: black;
+  color: gray;
+}
+
+.disabled:hover{
+  filter: none;
 }
