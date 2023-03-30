@@ -24,6 +24,8 @@ let btnPi = document.getElementById("btn-pi");
 let btnPoint = document.getElementById("btn-point");
 let btnPercent = document.getElementById("btn-percentage");
 
+let btnSqrt = document.getElementById("btn-sqrt");
+
 let btnEqual = document.getElementById("btn-equal");
 let result;
 
@@ -112,6 +114,10 @@ btnPercent.addEventListener("click", ()=>{
   displayResult.innerHTML += "%";
 })
 
+btnSqrt.addEventListener("click", ()=>{
+  displayResult.innerHTML += "√";
+})
+
 // TODO: Implement
 // 1. Implement ()
 // 2. implement sqrt
@@ -153,6 +159,9 @@ btnEqual.addEventListener("click", ()=>{
         } else if(raw[i].includes('%')){
           operands.push(parseInt(raw[i])/100);
           console.log("Ada %");
+        } else if(raw[i].includes('√')){
+          operands.push(Math.sqrt(parseInt(raw[i].substring(1))));
+          console.log("Wat √");
         } else {
           operands.push(parseFloat(raw[i]));
         }
@@ -207,7 +216,14 @@ function deletePoi(){
 //! Something Fun
 let bg = document.getElementById("bgm");
 function doSomethingFun(){
-  bg.style.background = "url('img/keys-d.webp')";
-  bg.style.backgroundSize = "cover";
+  console.log(bg.style.background);
 
+  if(bg.style.background.includes("img/keys-d.webp")){
+    console.log("hey");
+    bg.style.background = "url('img/design-is-rounded-rectangles-l.webp')";
+  } else {
+    bg.style.background = "url('img/keys-d.webp')";
+  }
+  bg.style.backgroundSize = "cover";
+  console.log(bg.style.background);
 }

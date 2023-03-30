@@ -1,4 +1,4 @@
-const str = "10%"; // 25+5 = 30
+const str = "√225"; // 25+5 = 30
 
 const raw = str.split(/(\+|\-|x|\/| mod )/);
 // operations = 5, +, 2, +, 1;
@@ -21,13 +21,16 @@ for (let i = 0; i < raw.length; i++) {
     } else if(raw[i].includes('%')){
       operands.push(parseInt(raw[i])/100);
       console.log("Ada %");
+    } else if(raw[i].includes('√')){
+      operands.push(Math.sqrt(parseInt(raw[i].substring(1))));
+      console.log("Wat √");
     } else {
       console.log("Pushing...");
       operands.push(parseFloat(raw[i]));
     }
   } else if(raw[i].includes('π')){
     operands.push(22/7);
-  }
+  } 
 }
 
 let result = operands[0];
