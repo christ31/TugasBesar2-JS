@@ -172,3 +172,10 @@ btnEqual.addEventListener("click", ()=>{
 // displayResult.innerHTML = "Ganti";
  
 
+//! Something Fun
+let bg = document.getElementById("bgm");
+function doSomethingFun(){
+  bg.style.background = "url('img/keys-d.webp')";
+  bg.style.backgroundSize = "cover";
+
+}
