@@ -70,38 +70,66 @@ btnNum9.addEventListener("click", ()=>{
 })
 
 btnPlus.addEventListener("click", ()=>{
-  nilaiA = parseInt(displayResult.innerHTML);
   displayResult.innerHTML += "+";
 })
 
 btnMinus.addEventListener("click", ()=>{
-  // displayResult.innerHTML += "-";
+  displayResult.innerHTML += "-";
 })
 
 btnMultiply.addEventListener("click", ()=>{
-  // displayResult.innerHTML += "x";
+  displayResult.innerHTML += "x";
 })
 
 btnDivision.addEventListener("click", ()=>{
-  // displayResult.innerHTML += "/";
+  displayResult.innerHTML += "/";
 })
 
 //! Add Operational
 btnEqual.addEventListener("click", ()=>{
   let calculateThis = displayResult.innerHTML;
+
+  // If empty, skip
   if(calculateThis == ""){
     console.log("nope by =");
   } else {
     let indexOperand = calculateThis.indexOf("+", 0);
-    
-    nilaiB = parseInt(calculateThis.charAt(indexOperand+1));
-    
-    let nilaiC = parseInt(calculateThis.substring(indexOperand+1, calculateThis.length));
-    console.log("Nilai C = "+nilaiC);
-    
-    result = nilaiA + nilaiC;
-    console.log(displayResult.innerHTML.length);
-    console.log("Operasi: " + calculateThis + " = " + result);
+
+    // Split string into operation and operands
+    const raw = calculateThis.split(/(\+|\-|x|\/)/);
+    const operands = [];
+
+    for (let i = 0; i < raw.length; i++) {
+      // Filter all the operations 
+      if (raw[i].match(/\d+/)) { 
+        operands.push(parseInt(raw[i]));
+      }
+    }
+    console.log(operands);
+
+    // Take the first value into results
+    result = operands[0];
+    let j = 1;
+    for (let i = 1; i < operands.length; i++) {
+      switch (raw[j]) {
+        case "+":
+          result += operands[i];
+          break;
+        case "-":
+          result -= operands[i];
+          break;
+        case "x":
+          result *= operands[i];
+          break;
+        case "/":
+          result /= operands[i];
+          break;
+        default:
+          console.log("Invalid operator");
+      }
+      // increment again to have the next valid operations
+      j+=2;
+    }
     displayResult.innerHTML = result;
   }
 })
