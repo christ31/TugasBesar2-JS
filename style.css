@@ -1,0 +1,93 @@
+body{
+  background: grey; 
+}
+
+.main-container{
+  text-align: center;
+}
+
+.main-window{
+  display: flex;
+  flex-direction: column;
+
+  background: green;
+  margin: auto;
+
+  border-radius: 10px;
+  border: 1px solid orange;
+
+  width: 300px;
+}
+
+.main-window-title-bar{
+  background: black;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+
+  height: 30px;
+
+  display: flex;
+}
+
+.main-window-title-bar .window-title{
+  background: red;
+  display: inline-block;
+  
+  margin: auto;
+
+}
+
+.main-window-title-bar .window-button-trio{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+
+  cursor: pointer;
+}
+
+.main-window-button{
+  background: #CECECE;
+  border-radius: 10px;
+}
+
+.main-window-button-row{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+
+  justify-content: space-around;
+
+  margin: 5px 0px;
+  gap: 5px;
+
+  height: 200px;
+}
+
+.btn-1 img{
+  width: 20px;
+}
+
+.btn-20{
+  grid-column: 5;
+  grid-row: 4/ span 2;
+
+  background: orange;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: black;
+  border-radius: 5px;
+  color: white;
+
+  border: none;
+
+  cursor: pointer;
+
+  width: 50px;
+
+  font-weight: 900;
+}
