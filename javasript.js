@@ -199,6 +199,10 @@ btnEqual.addEventListener("click", ()=>{
 
 // displayResult.innerHTML = "Ganti";
  
+// ! Poyo
+function deletePoi(){
+  displayResult.innerHTML = displayResult.innerHTML.slice(0, -1); 
+}
 
 //! Something Fun
 let bg = document.getElementById("bgm");

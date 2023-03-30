@@ -213,3 +213,13 @@ body{
 .c31-button button:hover{
   background: rgba(255,255,255, 0.5);
 }
+
+.delete{
+  position: fixed;
+  top: 80px;
+  left: 10px;
+}
+
+.delete button{
+  cursor: wait;
+}
