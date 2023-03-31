@@ -6,6 +6,7 @@
 body{
   margin: 0;
   padding: 0;
+  background: black;
 }
 
 .background{
@@ -14,6 +15,7 @@ body{
   background-size: cover;
   width: 100%;
   height: 100%;
+  transition: all 1s ease;
 }
 
 .main-container{
@@ -273,18 +275,18 @@ body{
   grid-column-end: 3;
 }
 
-.main-window-button-row-progate .btn-op{
+.main-window-button-row-progate .btn-row-4{
   background: orange;
   color: white;
 }
 
-.main-window-button-row-progate .btn-op:hover{
+.main-window-button-row-progate .btn-row-4:hover{
   background: orange;
   color: white;
   filter: brightness(110%);
 }
 
-.main-window-button-row-progate .btn-op:active{
+.main-window-button-row-progate .btn-row-4:active{
   filter: brightness(115%);
 }
 
