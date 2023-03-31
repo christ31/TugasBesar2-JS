@@ -1,5 +1,7 @@
 //! Init Variable
 let displayResult = document.getElementById("windowDisplay");
+let displayResultC31 = document.getElementById("windowDisplay-c31");
+
 let btnDelete = document.getElementById("btn-delete");
 let btnNum1 = document.getElementById("btn-1");
 let btnNum2 = document.getElementById("btn-2");
@@ -31,6 +33,8 @@ let result;
 
 let nilaiA;
 let nilaiB = 0;
+
+let firstLoad = true;
 
 //! Clear Main Display 
 btnDelete.addEventListener("click", ()=>{
@@ -203,24 +207,74 @@ btnEqual.addEventListener("click", ()=>{
   }
 })
 
-// displayResult.innerHTML = "Ganti";
- 
 // ! Poyo
 function deletePoi(){
   displayResult.innerHTML = displayResult.innerHTML.slice(0, -1); 
 }
 
+
 //! Something Fun
 let bg = document.getElementById("bgm");
+let indBg = 0;
+let urlBg = "";
+
 function doSomethingFun(){
   console.log(bg.style.background);
-
-  if(bg.style.background.includes("img/keys-d.webp")){
-    console.log("hey");
-    bg.style.background = "url('img/design-is-rounded-rectangles-l.webp')";
+  
+  if(indBg == 5){
+    indBg = 0;
   } else {
-    bg.style.background = "url('img/keys-d.webp')";
+    indBg += 1;
   }
+  
+  console.log("indBg :" + indBg);
+  switch(indBg){
+    case 0:
+      urlBg = "url('img/design-is-rounded-rectangles-l.webp')";
+      break;
+    case 1:
+      urlBg = "url('img/keys-d.webp')"; 
+      break;
+    case 2:
+      urlBg = "url('img/pixels-d.webp')";
+      break;
+    case 3:
+      urlBg = "url('img/pixels-l.webp')";
+      break;
+    case 4:
+      urlBg = "url('img/symbolic-d.webp')";
+      break;
+    case 5:
+      urlBg = "url('img/symbolic-l.webp')"
+      break;
+    default:
+      urlBg = "url('img/design-is-rounded-rectangles-l.webp')";
+      break;
+  }
+
+  console.log("urlBG = " + urlBg);
+  bg.style.background = urlBg;
+
+  // if(bg.style.background.includes("img/keys-d.webp")){
+  //   console.log("hey");
+  //   bg.style.background = "url('img/design-is-rounded-rectangles-l.webp')";
+  // } else {
+  //   bg.style.background = "url('img/keys-d.webp')";
+  // }
   bg.style.backgroundSize = "cover";
-  console.log(bg.style.background);
+  console.log("Final : " + bg.style.background);
+}
+
+let c31WindowsDesign = document.getElementById("c31-calc-window");
+let progateWindowsDesign = document.getElementById("progate-calc-window");
+progateWindowsDesign.style.display = "flex";
+
+function toggleDesign(){
+  if(progateWindowsDesign.style.display == "flex"){
+    progateWindowsDesign.style.display = "none";
+    c31WindowsDesign.style.display = "flex";
+  } else {
+    progateWindowsDesign.style.display = "flex";
+    c31WindowsDesign.style.display = "none";
+  }
 }
