@@ -69,7 +69,7 @@ btnEqualCls.forEach((value)=>{
       // TODO: imputing -3 + 5 will result in raw = "", -, 3, -, 5
       // TODO: number should be in front
       // Split string into operation and operands
-      const raw = calculateThis.split(/(\+|\-|x|\/| mod )/);
+      const raw = calculateThis.split(/(\+|\-|x|\/| mod |\÷)/);
       const operands = [];
 
       for(let i = 0; i < raw.length; i++) {
@@ -78,15 +78,15 @@ btnEqualCls.forEach((value)=>{
 
           // Find if raw have power²
           if(raw[i].includes("²")){
-            let toPower2 = parseInt(raw[i]);
+            let toPower2 = parseFloat(raw[i]);
             toPower2 *= toPower2;
             operands.push(toPower2);
           } else if(raw[i].includes('π')){
-            operands.push(22/7*(parseInt(raw[i])));
+            operands.push(22/7*(parseFloat(raw[i])));
           } else if(raw[i].includes('%')){
-            operands.push(parseInt(raw[i])/100);
+            operands.push(parseFloat(raw[i])/100);
           } else if(raw[i].includes('√')){
-            operands.push(Math.sqrt(parseInt(raw[i].substring(1))));
+            operands.push(Math.sqrt(parseFloat(raw[i].substring(1))));
           } else {
             operands.push(parseFloat(raw[i]));
           }
@@ -119,6 +119,8 @@ btnEqualCls.forEach((value)=>{
           case " mod ":
             result %= operands[i];
             break;
+          case "÷":
+            result /= operands[i];
           default:
             console.log("Invalid operator");
         }
